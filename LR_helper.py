@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
+from math import sqrt
 from sklearn import preprocessing
+from sklearn.metrics import mean_squared_error
 
 def cat_column_combine_vars(df):
 
@@ -67,3 +69,27 @@ def label_encode_features(df):
 	for col in col_list:
 		label_encoder = preprocessing.LabelEncoder()
 		df[col] = label_encoder.fit_transform(df[col])
+
+def model_results(X_train, y_train, X_test, y_test, model, show = True):
+
+    model.fit(X_train, y_train)
+
+    intercept = model.intercept_
+    residuals = y_train - model.predict(X_train)
+    RSS = np.sum(residuals ** 2)
+    train_r2 = model.score(X_train, y_train)
+    test_r2 = model.score(X_test, y_test)
+    train_error = 1 - train_r2
+    test_error  = 1 - test_r2
+    RMSE = np.sqrt(mean_squared_error(y, mlr_base1.predict(x_train)))
+
+    if show:
+        print('Train R^2 is equal to %.3f' %train_r2)
+        print('Train R^2 is equal to %.3f' %train_r2)
+        print('Test R^2 is equal to %.3f' %test_r2)
+        print('The intercept is %.3f' %intercept)
+        print('RSS is equal to %.3f' %RSS)
+        print('RMSE is equal to %.3f' %RMSE)
+        print("The training error is: %.5f" %train_error)
+        print("The test     error is: %.5f" %test_error)
+    return [train_error, test_error]
