@@ -41,6 +41,10 @@ def num_new_features(df):
 
 	df['sold_age'] = df['YrSold'].astype(int) - df['YearBuilt'].astype(int)
 
+	# Years since remod
+
+	df['yr_since_remod'] = df['YrSold'].astype(int) - df['YearRemodAdd'].astype(int)
+
 	# Creating column that lists total full and total half baths in the house
 
 	df['Total_Halfbaths'] = df['BsmtHalfBath'] + df['HalfBath']	
@@ -81,10 +85,9 @@ def model_results(X_train, y_train, X_test, y_test, model, show = True):
     test_r2 = model.score(X_test, y_test)
     train_error = 1 - train_r2
     test_error  = 1 - test_r2
-    RMSE = np.sqrt(mean_squared_error(y, mlr_base1.predict(x_train)))
+    RMSE = sqrt(mean_squared_error(y_train, model.predict(X_train)))
 
     if show:
-        print('Train R^2 is equal to %.3f' %train_r2)
         print('Train R^2 is equal to %.3f' %train_r2)
         print('Test R^2 is equal to %.3f' %test_r2)
         print('The intercept is %.3f' %intercept)
@@ -93,3 +96,9 @@ def model_results(X_train, y_train, X_test, y_test, model, show = True):
         print("The training error is: %.5f" %train_error)
         print("The test     error is: %.5f" %test_error)
     return [train_error, test_error]
+
+def cat_new_features(df):
+
+	df['remod_y_n'] = np.where((df['YearBuilt'] == df['YearRemodAdd']), 'N', 'Y')
+
+
