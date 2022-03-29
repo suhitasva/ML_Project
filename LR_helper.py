@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from math import sqrt
 from sklearn import preprocessing
+from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error
 
 def cat_column_combine_vars(df):
@@ -100,5 +101,27 @@ def model_results(X_train, y_train, X_test, y_test, model, show = True):
 def cat_new_features(df):
 
 	df['remod_y_n'] = np.where((df['YearBuilt'] == df['YearRemodAdd']), 'N', 'Y')
+
+def std_num_cols(df):
+
+	# Creating a scalar object
+
+	scaler = StandardScaler()
+
+	# Standardizind the dataframe
+	
+	df = scaler.fit_transform(df)
+
+
+
+
+
+
+
+	
+
+
+
+
 
 
