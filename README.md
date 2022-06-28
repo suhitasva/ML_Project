@@ -365,3 +365,11 @@
 <!-- wp:paragraph -->
 <p>Something, I would like to do if given some more time with this data is to go back and do a more thorough data analysis and work to see if the models themselves can provide more insight not previously uncovered.</p>
 <!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>References:</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul><li>Paul R. La Monica, C., 2022. <em>Could a housing slump threaten the stock market and the entire economy?</em> [online] CNN. Available at: &lt;https://www.cnn.com/2022/06/22/investing/premarket-stocks-trading/index.html> [Accessed 27 June 2022].</li><li>Gomez, J., 2022. <em>8 critical factors that influence a home's value | Opendoor</em>. [online] Opendoor. Available at: &lt;https://www.opendoor.com/w/blog/factors-that-influence-home-value> [Accessed 27 June 2022].</li><li>Kaggle.com. 2022. <em>House Prices - Advanced Regression Techniques | Kaggle</em>. [online] Available at: &lt;https://www.kaggle.com/c/house-prices-advanced-regression-techniques> [Accessed 27 June 2022].</li><li>scikit-learn. 2022. <em>sklearn.feature_selection.RFE</em>. [online] Available at: &lt;https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFE.html> [Accessed 27 June 2022].</li></ul>
+<!-- /wp:list -->
